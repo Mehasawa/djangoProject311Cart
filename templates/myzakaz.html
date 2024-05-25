@@ -1,0 +1,30 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block content %}
+<h2>Заказ номер {{ item.id }}</h2>
+    <h3>Что в заказе:</h3>
+    <p>{{ item.zakaz }}</p>
+    <h3>Адрес:</h3>
+    <p>{{ item.adres }}</p>
+    <h3>Телефон:</h3>
+    <p>{{ item.tel }}</p>
+    <h3>Товары:</h3>
+    <table>
+        <tr>
+            <th>Название</th>
+            <th>Картинка</th>
+            <th>Цена</th>
+            <th>Скидка</th>
+        </tr>
+        {% for one in item.items.all %}
+            <tr>
+            <td>{{ one.name }}</td>
+            <td>
+                <img src="{% static  one.image %}" alt=""></td>
+            <td>{{ one.price }}</td>
+            <td>{{ one.discount }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

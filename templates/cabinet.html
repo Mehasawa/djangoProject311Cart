@@ -1,0 +1,32 @@
+{% extends 'index.html' %}
+{%  load static %}
+{% block content %}
+<h1>Кабинет пользователя</h1>
+    <h3>username {{ user.username }}</h3>
+    <h3>email {{ user.email }}</h3>
+    <h4>Ваши заказы:</h4>
+    <table>
+        <tr>
+            <th>Адрес доставки</th>
+            <th>Телефон</th>
+            <th>Статус</th>
+            <th>Итог</th>
+        </tr>
+        {% for one in items %}
+            <tr>
+            <td>{{ one.adres }}</td>
+            <td>{{ one.tel }}</td>
+            <td>{{ one.status }}</td>
+            <td>{{ one.total }}</td>
+            <td>
+{#                {% for i in one.items.all %}#}
+{#                    {{ i.name }}#}
+{#                    {% endfor %}#}
+                <a href="{% url 'myzakaz' one.id%}">
+                    Подробнее
+                </a>
+            </td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

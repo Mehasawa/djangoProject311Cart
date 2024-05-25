@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+{% load static%}
+<html lang="ru">
+{% block head %}
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link rel="stylesheet" href="{% static 'css/1.css' %}">
+</head>
+{% endblock head %}
+<body>
+
+    {% block menu %}
+    <div class="top">
+        <ol class="menu">
+            <li><a href="{% url 'home' %}">Главная</a></li>
+            <li><a href="{% url 'goods' 'П'%}">Продукты</a></li>
+            <li><a href="{% url 'goods' 'О'%}">Одежда</a></li>
+            <li><a href="{% url 'goods' 'Ш'%}">Для школы</a></li>
+            <li><a href="{% url 'goods' 'Д'%}">Для дома</a></li>
+            <li><a href="{% url 'cart' %}">Корзина</a></li>
+            {% if not user.is_anonymous %}
+            <li><a href="{% url 'cabinet' %}">Кабинет</a></li>
+            {% endif %}
+        </ol>
+    </div>
+    {% endblock menu %}
+    {% block content %}
+    <div class="image">
+          <img src="https://avatars.mds.yandex.net/i?id=a9f10004bded9e179f5a06b3f1c159a76346fce4-9863167-images-thumbs&n=13" alt="">
+    </div>
+    {% endblock content %}
+  </body>
+</html>

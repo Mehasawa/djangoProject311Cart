@@ -1,0 +1,32 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block head %}
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link rel="stylesheet" href="{% static 'css/1.css' %}">
+    <link rel="stylesheet" href="{% static 'css/2.css' %}">
+</head>
+{% endblock %}
+{% block content %}
+    <div class="main">
+    {% for one in items %}
+        <div class="product-card">
+          <img src={% static one.image %} >
+          <h3>{{ one.name }}</h3>
+          <p>{{ one.price }}р</p>
+            {% if user.is_anonymous %}
+                <a href="">
+                <button>вход на сайт</button>
+                </a>
+            {% else %}
+                <a href="{% url 'buy' one.id cat%}">
+                    <button>в корзину</button>
+                </a>
+            {% endif %}
+        </div>
+    {% endfor %}
+    </div>
+
+
+{% endblock %}

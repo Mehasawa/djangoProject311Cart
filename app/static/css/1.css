@@ -1,0 +1,60 @@
+.menu { list-style: none; margin: 0; padding: 0; }
+
+.menu li {
+display: inline;
+}
+
+.menu li a {
+text-decoration: none;
+padding: 10px 15px;
+color: #fff;
+background-color: #333;
+}
+
+.menu li a:hover {
+background-color: #666;
+}
+
+.image  {
+    text-align: center;
+}
+
+.image img{
+    width: 80%;
+}
+
+.top {
+    text-align: center;
+    margin-bottom: 50px;
+    margin-top: 50px;
+}
+table {
+    border-collapse: collapse;
+    width: 80%;
+    margin: auto;
+}
+table td{
+    width: 20%;
+    text-align: center;
+    font-size: 2em;
+    border: 2px solid black;
+    height: 150px;
+}
+table img {
+    width: 50%;
+}
+table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+.pm {
+    width: 5%;
+}
+.pm button{
+    height: 100%;
+    width: 100%;
+    font-size: 1em;
+}
+.del button{
+    height: 100%;
+    width: 100%;
+}
